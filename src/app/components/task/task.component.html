@@ -1,0 +1,13 @@
+<div class="task-contener" xmlns="http://www.w3.org/1999/html">
+  <div class="task-title">Tache 1</div>
+  <div class="task-deadline">Demain 18:00</div>
+  <div class="task-add" *ngIf="!this.listOpened" (click)="this.showlist()">+</div>
+  <div class="task-add" *ngIf="this.listOpened" (click)="this.showlist()">-</div>
+  <div class="task-details-contener">
+    <div class="task-details" *ngIf="this.listOpened">
+      <input type="checkbox"/>&nbsp;sdfqsdfqsdfqsdfqsdfqsdfsdfqsdf<br/>
+      qsfsdfsqdfqsfzefz<br/>
+      sdfqsezqzfds<br/>
+    </div>
+  </div>
+</div>
