@@ -9,12 +9,8 @@ export class TaskComponent {
 
   listOpened = true;
 
-  showlist(){
-    if(!this.listOpened) {
-      this.listOpened = true;
-    } else {
-      this.listOpened = false;
-    }
+  showlist() {
+    this.listOpened = !this.listOpened;
   }
 
 }
