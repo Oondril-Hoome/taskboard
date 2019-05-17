@@ -1,0 +1,8 @@
+h1 {
+  font-family: 'Azonix', Fallback, sans-serif !important;
+}
+
+@font-face {
+  font-family: 'Azonix';
+  src: url('/src/assets/fonts/Azonix.otf') format('opentype');
+}
