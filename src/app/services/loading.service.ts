@@ -17,6 +17,7 @@ export class LoadingService {
   set loadingText(value: string) {
     this._loadingText = value;
   }
+
   get isLoading(): boolean {
     return this._isLoading;
   }

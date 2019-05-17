@@ -1,13 +1,14 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 <app-loading-component [loadingText]='loadingService.loadingText' [isVisible]='loadingService.isLoading'></app-loading-component>
 <div style="text-align:center">
   <app-headbar-component></app-headbar-component>
 
   <h1>
-    Welcome to {{ title }}
+    Welcome to H<h6>∞</h6>me
   </h1>
-  <button class="button button--size-s button--border-thin"><i class="fa fa-hourglass-o"></i>Charge</button>
+  <button class="button button--size-s button--border-thick button--anim1-color1 button--text-thick button--round-l" (click)="testLoading()"><fa name="hourglass-o"></fa>&nbsp;Charge</button>
 </div>
-<h2>Here are some links to help you start: </h2>
 <app-task-component></app-task-component>
 

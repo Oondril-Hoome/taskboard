@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {LoadingService} from './services/loading.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,14 @@ import {LoadingService} from './services/loading.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Mierda';
 
   constructor(public loadingService: LoadingService) { }
 
   ngOnInit() {
     this.loadingService.isLoading = false;
+  }
+
+  testLoading() {
+    this.loadingService.isLoading = !this.loadingService.isLoading;
   }
 }

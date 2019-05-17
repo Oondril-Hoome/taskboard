@@ -8,11 +8,14 @@
 :root {
   --colorBackgroundTheme1: black;
   --colorBackgroundTheme2: white;
-  --colorFontTheme1: #FF6464;
+  --colorFontTheme1: #FF6464; /*rouge saumon*/
   --colorFontTheme2: #535656;
   --colorFontTheme3: #e2dcdc;
 
   --fontSize1 : 40px;
+  --fontSizeButton1: 17px;
+  --fontFamily1: 'Montserrat', sans-serif;
+  --fontFamily2: 'Roboto', sans-serif;
 }
 
 @font-face {
@@ -20,12 +23,18 @@
   src: url('/src/assets/fonts/Azonix.otf') format('opentype');
 }
 
+body{
+  background-color: var(--colorBackgroundTheme1);
+  color: var(--colorFontTheme3);
+  font-family: var(--fontFamily1);
+}
+
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--fontFamily1);
 }
 
 h2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--fontFamily2);
 }
 
 h6{
@@ -38,10 +47,8 @@ h6{
 */
 /* Common button styles */
 .button {
-  float: left;
   min-width: 150px;
   max-width: 250px;
-  display: block;
   margin: 1em;
   padding: 1em 2em;
   border: none;
@@ -49,7 +56,8 @@ h6{
   color: inherit;
   vertical-align: middle;
   position: relative;
-  z-index: 1;
+  font-family: var(--fontFamily1);
+  font-size: var(--fontSizeButton1);
 }
 
 .button:focus {
@@ -116,5 +124,17 @@ h6{
   border: 3px solid;
 }
 
-.button--anim1{
+.button--anim1-color1{
+  color: var(--colorFontTheme2);
+  border-color: var(--colorBackgroundTheme2);
+  background-color: var(--colorBackgroundTheme2);
+  transition: 0.2s ease-out;
+}
+
+.button--anim1-color1:hover{
+  color:var(--colorFontTheme1);
+  border-color: var(--colorFontTheme1);
+  background-color: var(--colorBackgroundTheme1);
+  transform: scale(1.1);
+  cursor: pointer;
 }

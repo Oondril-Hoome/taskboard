@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import {TaskComponent} from './components/task/task.component';
@@ -18,7 +19,8 @@ import { LoadingService } from './services/loading.service';
     LoadingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFontAwesomeModule
   ],
   providers: [LoadingService],
   bootstrap: [AppComponent]
