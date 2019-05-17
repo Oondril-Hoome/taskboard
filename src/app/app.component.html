@@ -1,10 +1,10 @@
-<app-loading-component [isVisible]="this.isLoading"></app-loading-component>
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
+<app-loading-component [loadingText]='loadingService.loadingText' [isVisible]='loadingService.isLoading'></app-loading-component>
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
-    <button (click)="this.changeIsLoading()">ca charge</button>
+    Welcome to {{ title }}
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <button class="button button--size-s button--border-thin"><i class="fa fa-hourglass-o"></i>Charge</button>
 </div>
 <h2>Here are some links to help you start: </h2>
 <app-task-component></app-task-component>

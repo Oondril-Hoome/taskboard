@@ -7,5 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class LoadingComponent {
 
-  @Input('isVisible') isVisible: boolean;
+  @Input() isVisible;
+  @Input() loadingText;
 }

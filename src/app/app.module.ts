@@ -6,6 +6,7 @@ import {TaskComponent} from './components/task/task.component';
 import {TasklistComponent} from './components/tasklist/tasklist.component';
 import {LoadingComponent} from './components/loading/loading.component';
 
+import { LoadingService } from './services/loading.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {LoadingComponent} from './components/loading/loading.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
