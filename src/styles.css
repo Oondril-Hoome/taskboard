@@ -125,16 +125,28 @@ h6{
 }
 
 .button--anim1-color1{
-  color: var(--colorFontTheme2);
-  border-color: var(--colorBackgroundTheme2);
-  background-color: var(--colorBackgroundTheme2);
+
+  color:var(--colorFontTheme1);
+  border-color: var(--colorFontTheme1);
+  background-color: var(--colorBackgroundTheme1);
+
   transition: 0.2s ease-out;
 }
 
 .button--anim1-color1:hover{
-  color:var(--colorFontTheme1);
-  border-color: var(--colorFontTheme1);
-  background-color: var(--colorBackgroundTheme1);
+  color: var(--colorFontTheme2);
+  border-color: var(--colorBackgroundTheme2);
+  background-color: var(--colorBackgroundTheme2);
+
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.spin-180{
+  transition: 0.3s ease;
+}
+
+.button:hover .spin-180{
+ transform: rotateZ(180deg);
+
 }
