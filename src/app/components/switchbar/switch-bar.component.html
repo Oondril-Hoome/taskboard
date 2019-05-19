@@ -1,0 +1,8 @@
+<div class="options-container">
+  <div *ngFor="let option of options; let i = index" class="options"
+       [ngClass]="{'border-left-left': i == 0, 'border-left': i != 0, 'border-right': i == options.length-1, 'selected': option.isSelected}"
+        (click)="select(i)">
+    <i class="fa fa-calendar-check-o" *ngIf="option.isSelected"></i>&nbsp;{{option.text}}
+  </div>
+</div>
+

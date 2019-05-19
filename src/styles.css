@@ -4,18 +4,22 @@
 // When you code SCSS files out of this one, always use variables from this file
 // Thanks :)
 */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 :root {
   --colorBackgroundTheme1: black;
   --colorBackgroundTheme2: white;
   --colorFontTheme1: #FF6464; /*rouge saumon*/
-  --colorFontTheme2: #535656;
-  --colorFontTheme3: #e2dcdc;
+  --colorFontTheme2: #535656; /* gris foncé */
+  --colorFontTheme3: #e2dcdc; /* gris clair */
+  --colorFontTheme4: #65bf84; /* vert pastel validate*/
+  --colorFontTheme5: #d82f2f; /* rouge pastel error */
 
   --fontSize1 : 40px;
   --fontSizeButton1: 17px;
   --fontFamily1: 'Montserrat', sans-serif;
   --fontFamily2: 'Roboto', sans-serif;
+
 }
 
 @font-face {
@@ -35,6 +39,7 @@ h1 {
 
 h2 {
   font-family: var(--fontFamily2);
+  text-align: justify;
 }
 
 h6{
@@ -69,16 +74,16 @@ h6{
 }
 
 /* Sizes */
-.button--size-s {
+.font-size-s {
   font-size: 14px;
 }
 
-.button--size-m {
-  font-size: 16px;
+.font-size-m {
+  font-size: 18px;
 }
 
-.button--size-l {
-  font-size: 18px;
+.font-size-l {
+  font-size: 20px;
 }
 
 /* Typography and Roundedness */
@@ -87,15 +92,15 @@ h6{
   text-transform: uppercase;
 }
 
-.button--text-thin {
+.text-thin {
   font-weight: 300;
 }
 
-.button--text-medium {
+.text-medium {
   font-weight: 500;
 }
 
-.button--text-thick {
+.text-thick {
   font-weight: 600;
 }
 
@@ -124,20 +129,42 @@ h6{
   border: 3px solid;
 }
 
-.button--anim1-color1{
-
+.button--fontColor1{
   color:var(--colorFontTheme1);
   border-color: var(--colorFontTheme1);
-  background-color: var(--colorBackgroundTheme1);
+}
 
+.button--fontColor1 i{
+  color:var(--colorFontTheme1) !important;
+}
+
+.button--fontColor4{
+  color:var(--colorFontTheme4);
+  border-color: var(--colorFontTheme4);
+}
+
+.button--fontColor4 i{
+  color:var(--colorFontTheme4) !important;
+}
+
+.button--fontColor5{
+  color:var(--colorFontTheme5);
+  border-color: var(--colorFontTheme5);
+}
+
+.button--fontColor5 i{
+  color:var(--colorFontTheme5) !important;
+}
+
+.button--anim1{
+  background-color: var(--colorBackgroundTheme1);
   transition: 0.2s ease-out;
 }
 
-.button--anim1-color1:hover{
+.button--anim1:hover{
   color: var(--colorFontTheme2);
   border-color: var(--colorBackgroundTheme2);
   background-color: var(--colorBackgroundTheme2);
-
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -148,5 +175,14 @@ h6{
 
 .button:hover .spin-180{
  transform: rotateZ(180deg);
+
+}
+
+.spin-360{
+  transition: 0.3s ease;
+}
+
+.button:hover .spin-360{
+  transform: rotateZ(360deg);
 
 }

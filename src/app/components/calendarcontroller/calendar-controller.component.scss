@@ -1,0 +1,24 @@
+.container{
+  width: 100%;
+}
+
+.date-picker-container{
+
+}
+
+.date-picker-button{
+  display: inline-block;
+  margin: 2em;
+}
+.date-picker-button i.fa{
+  border-radius: 60px;
+  border: solid 2px white;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+  cursor: pointer;
+  color: var(--colorFontTheme1);
+}
+
+.switch-bar-container{
+  text-align: center;
+}

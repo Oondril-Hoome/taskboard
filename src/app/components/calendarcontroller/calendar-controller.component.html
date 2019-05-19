@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="switch-bar-container">
+    <app-switch-bar-component [options]="switchBarOptions"></app-switch-bar-component>
+    <br/><br/>
+    <div *ngIf="switchBarOptions[0].isSelected" class="date-picker-container">
+      <div class="date-picker-button"><i class="fa fa-arrow-left" (click)="removeOneDay()"></i></div>
+      <mat-form-field>
+        <input matInput id='matInput' [matDatepicker]="dp" [(ngModel)]="selectedDate" placeholder="Choose a day" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+      <div class="date-picker-button"><i class="fa fa-arrow-right" (click)="addOneDay()"></i></div>
+    </div>
+    <br/><br/>
+    <app-day-calendar-component *ngIf="switchBarOptions[0].isSelected" [tasks]="selectedDayTasks"></app-day-calendar-component>
+  </div>
+</div>

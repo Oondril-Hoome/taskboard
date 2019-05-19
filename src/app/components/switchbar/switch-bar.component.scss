@@ -1,0 +1,45 @@
+.options-container{
+  border: solid 2px var(--colorBackgroundTheme2);
+  border-radius: 40px;
+  color: var(--colorBackgroundTheme2);
+  display: inline-block;
+}
+
+.options{
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 150px;
+  max-width: 250px;
+  padding: 1em 1em;
+  transition: 0.4s ease;
+}
+
+.options:hover{
+  cursor: pointer;
+}
+
+.border-left-left{
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+}
+
+.border-right{
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.border-left{
+  border-left: solid 2px var(--colorBackgroundTheme2);
+}
+
+.selected{
+  background-color: var(--colorBackgroundTheme2);
+  color: var(--colorBackgroundTheme1);
+  font-weight: bold;
+}
+
+.fa{
+  color: var(--colorFontTheme1);
+}
+
+

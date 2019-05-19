@@ -1,13 +1,31 @@
-<div class="task-contener" xmlns="http://www.w3.org/1999/html">
-  <div class="task-title">Tache 1</div>
-  <div class="task-deadline">Demain 18:00</div>
-  <div class="task-add" *ngIf="!this.listOpened" (click)="this.showlist()">+</div>
-  <div class="task-add" *ngIf="this.listOpened" (click)="this.showlist()">-</div>
-  <div class="task-details-contener">
-    <div class="task-details" *ngIf="this.listOpened">
-      <input type="checkbox"/>&nbsp;sdfqsdfqsdfqsdfqsdfqsdfsdfqsdf<br/>
-      qsfsdfsqdfqsfzefz<br/>
-      sdfqsezqzfds<br/>
-    </div>
+<div class="container" [ngStyle]="{'background-color': taskColor, 'border': taskBorder}">
+  <div class="task-title-container">{{task.title}}</div>
+  <div class="toggle-task-button"><i class="fa fa-plus-circle" [ngClass]="{'toggled-task': isToggled}" (click)="toggle()"></i></div>
+  <div class="task-details-container" *ngIf="isToggled">
+    <table class="details-table">
+      <tr>
+        <td class="information-column">
+          <table class="details-information-table">
+            <tr>
+              <td>Author : {{task.author.username}}</td>
+            </tr>
+            <tr>
+              <td>Categorie : {{task.categorie.name}}</td>
+            </tr>
+            <tr>
+              <td>Estimated time: {{task.realisationTime.toString()}}</td>
+            </tr>
+          </table>
+        </td>
+        <td class="description-column">
+          <div class="detail-content-description">
+          {{task.description.textDescription}}
+          </div>
+          <div class="detail-content-description" *ngIf="task.description.imageDescriptionURL">
+            <img src="{{task.description.imageDescriptionURL}}"/>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
