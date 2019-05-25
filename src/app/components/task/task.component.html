@@ -1,5 +1,5 @@
 <div class="container" [ngStyle]="{'background-color': taskColor, 'border': taskBorder}">
-  <div class="task-title-container">{{task.title}}</div>
+  <div class="task-title-container"><b>{{task.title}}</b></div>
   <div class="toggle-task-button"><i class="fa fa-plus-circle" [ngClass]="{'toggled-task': isToggled}" (click)="toggle()"></i></div>
   <div class="toggle-task-button"><i class="fa fa-trash" (click)="trash()"></i></div>
   <div class="toggle-task-button"><i class="fa fa-clock-o" ></i></div>
@@ -9,13 +9,13 @@
         <td class="information-column">
           <table class="details-information-table">
             <tr>
-              <td>Author : {{task.author.username}}</td>
+              <td>Author : <b>{{task.author.username}}</b></td>
             </tr>
             <tr>
-              <td>Categorie : {{task.categorie.name}}</td>
+              <td>Categorie : <b>{{task.categorie.name}}</b></td>
             </tr>
             <tr>
-              <td>Estimated time: {{task.realisationTimeEstimation.toString()}}</td>
+              <td>Estimated time: <b>{{task.realisationTimeEstimation.toString()}}</b></td>
             </tr>
           </table>
         </td>
