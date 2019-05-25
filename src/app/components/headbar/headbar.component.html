@@ -1,4 +1,4 @@
-<div class="burger-container">
+<!--<div class="burger-container">
   <div id="nav-icon2" [ngClass]="{'open': isOpen}" (click)="toggle()">
     <span></span>
     <span></span>
@@ -12,4 +12,15 @@
   <div style="display: inline-block; text-align: right; margin-top: 1%">
   <button class="button button--font-size-xs button--right button--border-thick button--anim1 button--fontColor1 button--text-thick button--round-l">Login</button>
   </div>
+</div>-->
+<div class="burger-container">
+  <div class="hamburger" id="hamburger-6" [ngClass]="{'is-active': isOpen}" (click)="toggle()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</div>
+
+<div class="headbar-container" [ngClass]="{'visible': isOpen}">
+
 </div>
