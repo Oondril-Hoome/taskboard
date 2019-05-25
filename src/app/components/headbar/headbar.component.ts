@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeadbarComponent {
 
-  bouttonOn = true;
+  isOpen = false;
 
-  showtaTrace() {
-    this.bouttonOn = !this.bouttonOn;
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
-
 }
