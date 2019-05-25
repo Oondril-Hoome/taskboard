@@ -19,7 +19,9 @@ export class Task {
   creationDate: Date;
   assignationDate: Date;
   realisationWishedDate: Date;
+  realisationWishedEndDate: Date;
   realisationRealDate: Date;
+  realisationRealEndDate: Date;
 
   nbPostpown: number;
 }

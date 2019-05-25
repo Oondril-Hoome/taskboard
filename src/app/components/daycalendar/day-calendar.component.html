@@ -1,9 +1,34 @@
 <div class="container">
-  <div class="timeline-container">
-
-  </div>
-  <div class="tasks-container">
-    <app-task-component id="task-{{i}}" *ngFor="let task of tasks; let i = index" [task]="task"></app-task-component>
-  </div>
+  <table class="container-table">
+    <tbody>
+    <ng-container *ngFor="let task of tasks; let i = index">
+      <tr *ngIf="i === 0" class="spacing-line">
+        <td class="timeline-space-left-column">
+        </td>
+        <td class="timeline-column-spacing">
+        </td>
+        <td class="spacing-column"><span class="spacing-content"></span></td>
+      </tr>
+      <tr class="task-line" id="task-line-{{i}}" >
+        <td class="timeline-space-left-column">
+          <span class="hour-text-top">{{task.realisationWishedDate | date:'HH:mm'}}</span>
+        </td>
+        <td class="timeline-column">
+          <span class="top-point"></span>
+        </td>
+        <td class="task-column"><app-task-component [task]="task"></app-task-component></td>
+      </tr>
+      <tr class="spacing-line">
+        <td class="timeline-space-left-column">
+          <span class="hour-text-bottom">{{task.realisationWishedEndDate | date:'HH:mm'}}</span>
+        </td>
+        <td class="timeline-column-spacing">
+          <span class="bottom-point"></span>
+        </td>
+        <td class="spacing-column"><span class="spacing-content"></span></td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
 </div>
 

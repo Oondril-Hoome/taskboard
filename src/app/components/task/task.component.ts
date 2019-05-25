@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Task} from '../../models/task/task.model';
+import {TasksService} from '../../services/tasks.service';
 
 @Component({
   selector: 'app-task-component',
@@ -15,6 +16,10 @@ export class TaskComponent implements OnInit{
   taskBorder = 'solid 2px #ffffff';
   isToggled = false;
 
+  constructor(private tasksService: TasksService) { }
+
+  isOK = true;
+
   ngOnInit() {
     if (this.task.categorie.color) {
       this.taskColor = this.task.categorie.color;
@@ -24,6 +29,10 @@ export class TaskComponent implements OnInit{
 
   toggle() {
     this.isToggled = !this.isToggled;
+  }
+
+  trash() {
+    this.tasksService.removeTask(this.task);
   }
 
 }

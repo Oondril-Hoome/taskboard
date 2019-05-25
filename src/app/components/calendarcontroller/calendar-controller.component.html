@@ -12,6 +12,6 @@
       <div class="date-picker-button"><i class="fa fa-arrow-right" (click)="addOneDay()"></i></div>
     </div>
     <br/><br/>
-    <app-day-calendar-component *ngIf="switchBarOptions[0].isSelected" [tasks]="selectedDayTasks"></app-day-calendar-component>
+    <app-day-calendar-component *ngIf="switchBarOptions[0].isSelected" [tasks]="this.tasksService.userTasks"></app-day-calendar-component>
   </div>
 </div>

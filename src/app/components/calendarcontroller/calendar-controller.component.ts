@@ -7,6 +7,7 @@ import {FormControl} from '@angular/forms';
 import {MAT_DATE_FORMATS} from '@angular/material';
 
 import * as moment from 'moment';
+import {TasksService} from '../../services/tasks.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -30,40 +31,13 @@ export const MY_FORMATS = {
 })
 export class CalendarControllerComponent {
 
+  constructor(public tasksService: TasksService) { }
+
   switchBarOptions: Array<SwitchOption> = [
     {text : 'Day', isSelected : true},
     {text: 'Week', isSelected : false},
     {text: 'Month', isSelected : false},
     {text: 'Year', isSelected : false},
-  ];
-
-  selectedDayTasks = [
-    { id: 0, title: 'Work',
-      description: { textDescription: 'Normal working day', imageDescriptionURL: 'https://orleans.cesi.fr/wp-content/uploads/sites/19/2019/02/SopraSteria-Carre.png'},
-      realisationTimeEstimation: new Temps(240),
-      author: {username: 'Oondril'},
-      assigned: {username: 'Oondril'},
-      categorie: {name: 'Travail', color: '#6088e0'},
-      creationDate: new Date('2019-04-16T00:00:00'),
-      assignationDate: Date,
-      realisationWishedDate: new Date().setHours(8)},
-    { id: 1, title: 'See @SamSam',
-      description: { textDescription: 'RDV 18h plage'},
-      realisationTimeEstimation: new Temps(60),
-      author: {username: 'Oondril'},
-      assigned: {username: 'Oondril'},
-      categorie: {name: 'Sortie', color: '#a976fc'},
-      creationDate: new Date('2019-04-16T00:00:00'),
-      assignationDate: Date,
-      realisationWishedDate: new Date().setHours(18)},
-    { id: 2, title: 'Clean the floor of the flat',
-      realisationTimeEstimation: new Temps(15),
-      author: {username: 'SamSam'},
-      assigned: {username: 'Oondril'},
-      categorie: {name: 'Maison', color: '#fca276'},
-      creationDate: new Date('2019-04-16T00:00:00'),
-      assignationDate: Date,
-      realisationWishedDate: new Date().setHours(20)},
   ];
 
   selectedDate: Date = new Date();

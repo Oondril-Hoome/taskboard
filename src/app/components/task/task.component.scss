@@ -1,11 +1,17 @@
 .container{
   padding: 1em 1em;
-  transition: 0.2s ease;
+  border-radius: 5px;
+  margin: 0 0;
+  transition: 0.2s ease-out;
 }
 
 .container:hover{
   border-color: var(--colorBackgroundTheme2);
   //transform: scale(1.01);
+}
+
+.task-details-container{
+  margin-top: 15px;
 }
 
 .task-title-container{
@@ -16,9 +22,11 @@
 
 .toggle-task-button{
   display: inline-block;
+  padding: 0 10px;
   float: right;
   font-size: 30px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .fa-plus-circle{
@@ -32,7 +40,9 @@
 .details-table{
   width: 100%;
   border: solid 1px var(--colorBackgroundTheme2);
+  border-radius: 5px;
 }
+
 .information-column{
   width: 20%;
   border-right: solid 1px var(--colorBackgroundTheme2);
@@ -44,6 +54,10 @@
 }
 
 .details-information-table{
+
+}
+
+.details-description-table{
 
 }
 

@@ -1,6 +1,8 @@
 <div class="container" [ngStyle]="{'background-color': taskColor, 'border': taskBorder}">
   <div class="task-title-container">{{task.title}}</div>
   <div class="toggle-task-button"><i class="fa fa-plus-circle" [ngClass]="{'toggled-task': isToggled}" (click)="toggle()"></i></div>
+  <div class="toggle-task-button"><i class="fa fa-trash" (click)="trash()"></i></div>
+  <div class="toggle-task-button"><i class="fa fa-clock-o" ></i></div>
   <div class="task-details-container" *ngIf="isToggled">
     <table class="details-table">
       <tr>
@@ -13,17 +15,25 @@
               <td>Categorie : {{task.categorie.name}}</td>
             </tr>
             <tr>
-              <td>Estimated time: {{task.realisationTime.toString()}}</td>
+              <td>Estimated time: {{task.realisationTimeEstimation.toString()}}</td>
             </tr>
           </table>
         </td>
         <td class="description-column">
-          <div class="detail-content-description">
-          {{task.description.textDescription}}
-          </div>
-          <div class="detail-content-description" *ngIf="task.description.imageDescriptionURL">
-            <img src="{{task.description.imageDescriptionURL}}"/>
-          </div>
+          <table class="details-description-table">
+            <tr>
+              <td *ngIf="task.description && task.description.textDescription">
+                <div class="detail-content-description">
+                  {{task.description.textDescription}}
+                </div>
+              </td>
+              <td *ngIf="task.description && task.description.imageDescriptionURL">
+                <div class="detail-content-description">
+                  <img src="{{task.description.imageDescriptionURL}}"/>
+                </div>
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </table>

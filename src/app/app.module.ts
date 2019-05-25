@@ -14,6 +14,7 @@ import {SwitchBarComponent} from './components/switchbar/switch-bar.component';
 import { LoadingService } from './services/loading.service';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, NativeDateModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TasksService} from './services/tasks.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [LoadingService],
+  providers: [LoadingService, TasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
