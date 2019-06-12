@@ -1,13 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Temps} from '../models/units/temps.model';
 import {Task} from '../models/task/task.model';
+import {User} from '../models/user/user.model';
+import {ApiService} from './api.service';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TasksService {
 
-  constructor() { }
+  constructor(private apiService: ApiService) { }
+
+  private _currentPrintedTasks: Subject<any> = new Subject();
+  public currentPrintedTasks: Observable<Task[]> = this._currentPrintedTasks.asObservable();
 
   userTasks = [
     { id: 0, title: 'Work',
@@ -59,7 +65,24 @@ export class TasksService {
       realisationWishedEndDate: new Date().setHours(24)}
   ];
 
-  removeTask(taskToRemove:Task) {
+  getAllToDoTasksOfUser(user: User){
+    this.apiService.getAllToDoTasksOfUser(user).subscribe( res => {
+      console.log('the task get succeeded');
+      this.userTasks = res;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  addToDoTaskToUser(user: User, task: Task) {
+    this.apiService.addToDoTaskToUser(user, task).subscribe( res => {
+      console.log('the task post succeeded');
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  removeTask(taskToRemove: Task) {
     //local remove
     this.userTasks = this.userTasks.filter(task => task.id !== taskToRemove.id);
   }

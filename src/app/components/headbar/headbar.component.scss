@@ -145,10 +145,17 @@
   position: fixed;
   z-index: 1;
   transition: 0.3s ease-out;
+
+  text-align:center;
 }
 
 .visible{
   top: 0;
+}
+
+.test{
+  margin: 0 ;
+  line-height: 100%;
 }
 
 .burger-container{

@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended : false}));
 app.post('/api/user/login', (req, res) => {
   mongoose.connect(url, function(err){
     if(err) throw err;
-    console.log('connected successfully, username is ',req.body.username,' password is ',req.body.password);
+      console.log('connected successfully, username is ',req.body.username,' password is ',req.body.password);
   });
 });
 

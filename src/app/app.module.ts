@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {TaskComponent} from './components/task/task.component';
@@ -15,6 +16,8 @@ import { LoadingService } from './services/loading.service';
 import {MatDatepickerModule, MatFormFieldModule, MatInputModule, NativeDateModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TasksService} from './services/tasks.service';
+import {ApiService} from './services/api.service';
+import {RequestsTesterComponent} from './components/requeststester/requeststester.component';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import {TasksService} from './services/tasks.service';
     CalendarControllerComponent,
     HeadbarComponent,
     LoadingComponent,
-    SwitchBarComponent
+    SwitchBarComponent,
+    RequestsTesterComponent
     ],
   imports: [
     BrowserModule,
@@ -36,9 +40,10 @@ import {TasksService} from './services/tasks.service';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [LoadingService, TasksService],
+  providers: [LoadingService, TasksService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

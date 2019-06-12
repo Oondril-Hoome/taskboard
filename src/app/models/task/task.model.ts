@@ -25,3 +25,26 @@ export class Task {
 
   nbPostpown: number;
 }
+
+export interface TaskModel {
+  id: number;
+  title: string;
+  description: TaskDescription;
+  categorie: TaskCategorie;
+
+  realisationTimeEstimation: Temps;
+  realisationTime: Temps;
+
+  author: User;
+  assigned: Array<User>;
+  realisator: Array<User>;
+
+  creationDate: Date;
+  assignationDate: Date;
+  realisationWishedDate: Date;
+  realisationWishedEndDate: Date;
+  realisationRealDate: Date;
+  realisationRealEndDate: Date;
+
+  nbPostpown: number;
+}

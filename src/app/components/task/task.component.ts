@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Task} from '../../models/task/task.model';
 import {TasksService} from '../../services/tasks.service';
+import {User} from '../../models/user/user.model';
 
 @Component({
   selector: 'app-task-component',
@@ -21,7 +22,7 @@ export class TaskComponent implements OnInit{
   isOK = true;
 
   ngOnInit() {
-    if (this.task.categorie.color) {
+    if (this.task.categorie && this.task.categorie.color) {
       this.taskColor = this.task.categorie.color;
       this.taskBorder = 'solid 2px ' + this.taskColor;
     }
@@ -29,6 +30,9 @@ export class TaskComponent implements OnInit{
 
   toggle() {
     this.isToggled = !this.isToggled;
+    const user = new User();
+    user.username = 'oondril';
+    //this.tasksService.getAllToDoTasksOfUser(user);
   }
 
   trash() {
