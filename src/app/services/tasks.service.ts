@@ -68,7 +68,7 @@ export class TasksService {
   getAllToDoTasksOfUser(user: User){
     this.apiService.getAllToDoTasksOfUser(user).subscribe( res => {
       console.log('the task get succeeded');
-      this.userTasks = res;
+      this.userTasks = res[0].userData.taskboardData.toDoTasks;
     }, err => {
       console.log(err);
     });

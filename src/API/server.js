@@ -12,6 +12,7 @@ let url = 'mongodb://localhost:27017/hoome';
 app.use(cors());
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let data = '';
 
@@ -42,7 +43,7 @@ app.get('/api/:username/taskboard/todotasks', async (req, res) => {
   });
 });
 
-app.post("/api/:username/taskboard/todotasks", async (request, response) => {
+app.post("/api/:username/taskboard/todotasks", async (req, res) => {
   let username = req.params.username;
   console.log('Requested add a todotask to '+username);
 
@@ -55,15 +56,18 @@ app.post("/api/:username/taskboard/todotasks", async (request, response) => {
     } else {
       console.log('Connection established');
       var collection = dbo.collection('users');
-      var task = {
-        title: req.body.title,
-        longitude: req.body.position.long,
-        latitude: req.body.position.lat,
-        date: req.body.dateTime
-      };
+      var task = JSON.parse(req.body.task);
       console.log(task);
 
-      collection.insertMany([task], null, function (err, result) {
+      //collection.insertOn{task}, null, function (err, result) {
+        //if (err) {
+          //console.log('Unable to add this to the collection', err);
+        //} else {
+          //console.log('Added to the collection');
+        //}
+        //db.close();
+      //});
+      collection.update({"userAuth.userName":username},{"$push":{"userData.taskboardData.toDoTasks":task}}, function (err, result) {
         if (err) {
           console.log('Unable to add this to the collection', err);
         } else {
