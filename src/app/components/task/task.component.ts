@@ -30,13 +30,11 @@ export class TaskComponent implements OnInit{
 
   toggle() {
     this.isToggled = !this.isToggled;
-    const user = new User();
-    user.username = 'oondril';
-    //this.tasksService.getAllToDoTasksOfUser(user);
   }
 
   trash() {
-    this.tasksService.removeTask(this.task);
+    const user = new User('oondril');
+    this.tasksService.removeToDoTaskToUser(user, this.task);
   }
 
 }

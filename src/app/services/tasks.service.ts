@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Temps} from '../models/units/temps.model';
 import {Task} from '../models/task/task.model';
 import {User} from '../models/user/user.model';
@@ -8,12 +8,17 @@ import {Observable, Subject} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class TasksService {
+export class TasksService implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
+  //private userTasks: [Task];
   private _currentPrintedTasks: Subject<any> = new Subject();
   public currentPrintedTasks: Observable<Task[]> = this._currentPrintedTasks.asObservable();
+
+  ngOnInit(): void {
+    this.getAllToDoTasksOfUser(new User('oondril'));
+  }
 
   userTasks = [
     { id: 0, title: 'Work',
@@ -65,7 +70,7 @@ export class TasksService {
       realisationWishedEndDate: new Date().setHours(24)}
   ];
 
-  getAllToDoTasksOfUser(user: User){
+  getAllToDoTasksOfUser(user: User) {
     this.apiService.getAllToDoTasksOfUser(user).subscribe( res => {
       console.log('the task get succeeded');
       this.userTasks = res[0].userData.taskboardData.toDoTasks;
@@ -77,14 +82,21 @@ export class TasksService {
   addToDoTaskToUser(user: User, task: Task) {
     this.apiService.addToDoTaskToUser(user, task).subscribe( res => {
       console.log('the task post succeeded');
+      //get tasks after add
+      this.getAllToDoTasksOfUser(user);
     }, err => {
       console.log(err);
     });
   }
 
-  removeTask(taskToRemove: Task) {
-    //local remove
-    this.userTasks = this.userTasks.filter(task => task.id !== taskToRemove.id);
+  removeToDoTaskToUser(user: User, taskToRemove: Task) {
+    this.apiService.removeToDoTaskToUser(user, taskToRemove).subscribe(res => {
+      console.log('the task delete succeeded');
+      //get tasks after delete
+      this.getAllToDoTasksOfUser(user);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

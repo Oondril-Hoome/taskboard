@@ -35,9 +35,16 @@ export class ApiService {
 
   addToDoTaskToUser(user: User, task: Task) {
     const body = JSON.stringify({ task });
-    console.log('task in api.service : ' + body);
     return this.http.post(this.url + '/' + user.username +  '/taskboard/todotasks',
       Normalizer.serializeHttpParams('task', body) , {
+        headers: this.headers
+      });
+  }
+
+  removeToDoTaskToUser(user: User, task: Task){
+    const taskId = task.id;
+    return this.http.delete(this.url + '/' + user.username +  '/taskboard/todotasks/' + taskId,
+    {
         headers: this.headers
       });
   }

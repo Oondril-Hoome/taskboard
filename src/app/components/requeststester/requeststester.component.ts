@@ -13,7 +13,7 @@ export class RequestsTesterComponent {
 
   private user: User;
   constructor(private tasksService: TasksService) {
-    this.user = new User();
+    this.user = new User('oondril');
     this.user.username = 'oondril';
     this.user.id = 0;
   }

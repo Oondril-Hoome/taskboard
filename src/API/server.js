@@ -57,16 +57,8 @@ app.post("/api/:username/taskboard/todotasks", async (req, res) => {
       console.log('Connection established');
       var collection = dbo.collection('users');
       var task = JSON.parse(req.body.task);
+      var task = task.task;
       console.log(task);
-
-      //collection.insertOn{task}, null, function (err, result) {
-        //if (err) {
-          //console.log('Unable to add this to the collection', err);
-        //} else {
-          //console.log('Added to the collection');
-        //}
-        //db.close();
-      //});
       collection.update({"userAuth.userName":username},{"$push":{"userData.taskboardData.toDoTasks":task}}, function (err, result) {
         if (err) {
           console.log('Unable to add this to the collection', err);
@@ -98,13 +90,35 @@ app.put("/api/:username/taskboard/todotasks/:id", async (request, response) => {
   let MongoClient = mongodb.MongoClient;
 });
 
-app.delete("/api/:username/taskboard/todotasks/:id", async (request, response) => {
+app.delete("/api/:username/taskboard/todotasks/:id", async (req, res) => {
   let username = req.params.username;
-  let id = req.params.id;
-  console.log('Requested delete the task '+ id +' of '+username)
+  let idTask = parseInt(req.params.id);
+  console.log('Requested delete the task '+ idTask +' of '+username);
 
   data = req.body;
   let MongoClient = mongodb.MongoClient;
+
+  MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+    let dbo = db.db('hoome');
+    if (err) {
+      console.log('Unable to connect to the server', err);
+    } else {
+      console.log('Connection established');
+      var collection = dbo.collection('users');
+      console.log("idTask = " +idTask);
+
+      collection.update({"userAuth.userName":username},{"$pull":{"userData.taskboardData.toDoTasks":{"id": idTask }}}, function (err, result) {
+      //collection.remove({"userAuth.userName":username},function (err, result) {
+        if (err) {
+          console.log('Unable to remove this from the collection', err);
+        } else {
+          console.log('Removed from the collection');
+        }
+        db.close();
+      });
+    }
+  });
+  res.send({ message: 'Successfully deleted data' });
 });
 
 app.get("/api/:username/taskboard/todotasks/:day", async (request, response) => {
