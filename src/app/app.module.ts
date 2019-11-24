@@ -13,11 +13,15 @@ import {CalendarControllerComponent} from './components/calendarcontroller/calen
 import {SwitchBarComponent} from './components/switchbar/switch-bar.component';
 
 import { LoadingService } from './services/loading.service';
-import {MatDatepickerModule, MatFormFieldModule, MatInputModule, NativeDateModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, NativeDateModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TasksService} from './services/tasks.service';
 import {ApiService} from './services/api.service';
 import {RequestsTesterComponent} from './components/requeststester/requeststester.component';
+import {DialogOverviewExample} from './components/requeststester/login.component';
+import {DialogOverviewExampleDialog} from './components/requeststester/login.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import {PopupComponent} from './components/popup/popup.component';
 import {MonthCalendarComponent} from './components/calendarcontroller/monthcalendar/month-calendar.component';
 import {WeekCalendarComponent} from './components/calendarcontroller/weekcalendar/week-calendar.component';
@@ -40,6 +44,9 @@ import {YearCalendarComponent} from './components/calendarcontroller/yearcalenda
     SwitchBarComponent,
     RequestsTesterComponent,
     PopupComponent,
+    RequestsTesterComponent,
+    DialogOverviewExample,
+    DialogOverviewExampleDialog
     ],
   imports: [
     BrowserModule,
@@ -51,8 +58,12 @@ import {YearCalendarComponent} from './components/calendarcontroller/yearcalenda
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   providers: [LoadingService, TasksService, ApiService],
   bootstrap: [AppComponent],
   schemas : [ NO_ERRORS_SCHEMA ]

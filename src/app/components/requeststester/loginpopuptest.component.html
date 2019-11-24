@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Hi </h1>
+<div mat-dialog-content>
+  <p>Username</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.username">
+  </mat-form-field>
+  <p>Password</p>
+  <mat-form-field>
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="data.password">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+     <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+    </button>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.username" cdkFocusInitial>Login</button>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <!--<button mat-button [mat-dialog-close]="data.username" cdkFocusInitial class="button button--size-s button--border-thick button--anim1 button--fontColor4 button--text-thick button--round-l"><i class="fa fa-hourglass-o spin-180"></i>Login</button>
+  <button mat-button (click)="onNoClick()" cdkFocusInitial class="button button--size-s button--border-thick button--anim1 button--fontColor1 button--text-thick button--round-l">No Thanks</button>
+-->
+</div>
