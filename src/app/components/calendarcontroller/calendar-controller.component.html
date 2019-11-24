@@ -13,5 +13,8 @@
     </div>
     <br/><br/>
     <app-day-calendar-component *ngIf="switchBarOptions[0].isSelected" [tasks]="this.tasksService.userTasks"></app-day-calendar-component>
+    <app-week-calendar-component *ngIf="switchBarOptions[1].isSelected" [tasks]=""></app-week-calendar-component>
+    <app-month-calendar-component *ngIf="switchBarOptions[2].isSelected" [tasks]=""></app-month-calendar-component>
+    <app-year-calendar-component *ngIf="switchBarOptions[3].isSelected" [tasks]=""></app-year-calendar-component>
   </div>
 </div>

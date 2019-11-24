@@ -1,0 +1,17 @@
+
+<div class="transparent-background" *ngIf="isVisible">
+  <div class="centered-popup-container">
+    <div class="popup-title">
+     <h1 class="title">{{title}}</h1>
+    </div>
+    <div class="cross-container" (click)="changeIsVisible(false)">
+      <i class="fa fa-times spin-360"></i>
+    </div>
+    <div class="popup-content">
+      <ng-content select="popup-body"></ng-content>
+    </div>
+    <div class="popup-action">
+      <ng-content select="popup-buttons"></ng-content>
+    </div>
+  </div>
+</div>

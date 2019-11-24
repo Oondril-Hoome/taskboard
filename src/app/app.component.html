@@ -1,16 +1,29 @@
-<app-loading-component [loadingText]='loadingService.loadingText' [isVisible]='loadingService.isLoading'></app-loading-component>
-<app-headbar-component></app-headbar-component>
-<requests-tester-component></requests-tester-component>
-<div style="text-align:center">
-  <button class="button button--size-s button--border-thick button--anim1 button--fontColor1 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-hourglass-o spin-180"></i>&nbsp;Charge</button>
-  <button class="button button--size-s button--border-thick button--anim1 button--fontColor4 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-check spin-360"></i>&nbsp;I agree</button>
-  <button class="button button--size-s button--border-thick button--anim1 button--fontColor5 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-times spin-360"></i>&nbsp;I disagree</button>
-  <h1>Style de texte pour les titres ?!</h1>
-  <h2 class="text-thin font-size-m">Style de texte pour les paragraphes ?!<br/>Lorem ipsum dolor sit amet, summo explicari ius te. Eos cu illum partiendo, et mei unum dicant commodo, ad vis dicit apeirian eleifend. Suas eius ex has. Eam rebum scribentur at, tation copiosae persecuti ne eos.
+<app-loading-component [loadingText]='loadingService.loadingText' [isVisible]='loadingService.isLoading'>
+  <app-popup-component title="Bonjour mamen" [isVisible]="this.isVisible" (eventChangeIsVisible)="changePopupIsVisible($event)">
+    <popup-body>
+      <div>Tintin
+      TinTin
+      Tintin
+      tintin</div>
+    </popup-body>
+    <popup-buttons>
+      <button class="button button--size-s button--border-thick button--anim1 button--fontColor5 button--text-thick button--round-l" (click)="changePopupIsVisible(false)"><i class="fa fa-times spin-360"></i>&nbsp;Cancel</button>
+      <button class="button button--size-s button--border-thick button--anim1 button--fontColor4 button--text-thick button--round-l"><i class="fa fa-check spin-360" ></i>&nbsp;Create</button>
+    </popup-buttons>
+  </app-popup-component>
+  <app-headbar-component></app-headbar-component>
+  <requests-tester-component></requests-tester-component>
+  <div style="text-align:center">
+    <button class="button button--size-s button--border-thick button--anim1 button--fontColor1 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-hourglass-o spin-180"></i>&nbsp;Charge</button>
+    <button class="button button--size-s button--border-thick button--anim1 button--fontColor4 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-check spin-360"></i>&nbsp;I agree</button>
+    <button class="button button--size-s button--border-thick button--anim1 button--fontColor5 button--text-thick button--round-l" (click)="testLoading()"><i class="fa fa-times spin-360"></i>&nbsp;I disagree</button>
+    <h1>Style de texte pour les titres ?!</h1>
+    <h2 class="text-thin font-size-m">Style de texte pour les paragraphes ?!<br/>Lorem ipsum dolor sit amet, summo explicari ius te. Eos cu illum partiendo, et mei unum dicant commodo, ad vis dicit apeirian eleifend. Suas eius ex has. Eam rebum scribentur at, tation copiosae persecuti ne eos.
 
-    Ne velit expetendis eos, postea mollis explicari an pri. Adipisci iracundia ex sit, sed ex erant exerci alterum. Lorem oblique ad vis. Id lorem inciderint vel.
+      Ne velit expetendis eos, postea mollis explicari an pri. Adipisci iracundia ex sit, sed ex erawnt exerci alterum. Lorem oblique ad vis. Id lorem inciderint vel.
 
-    Ius amet suas veritus in, dicam nonumes elaboraret quo at. Ei mei case affert. Ne qui quis dolorum meliore. Cum invidunt platonem ea, has dicat ocurreret incorrupte ut. Mea ad mucius consequuntur.</h2>
-</div>
-<app-calendar-controller-component></app-calendar-controller-component>
-
+      Ius amet suas veritus in, dicam nonumes elaboraret quo at. Ei mei case affert. Ne qui quis dolorum meliore. Cum invidunt platonem ea, has dicat ocurreret incorrupte ut. Mea ad mucius consequuntur.
+    </h2>
+  </div>
+  <app-calendar-controller-component></app-calendar-controller-component>
+</app-loading-component>

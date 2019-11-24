@@ -9,10 +9,16 @@ import {Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
+  isVisible = true;
+
   constructor(public loadingService: LoadingService) { }
 
   ngOnInit() {
     this.loadingService.isLoading = false;
+  }
+
+  changePopupIsVisible(isVisibleNewValue: boolean) {
+    this.isVisible = isVisibleNewValue;
   }
 
   testLoading() {

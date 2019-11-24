@@ -81,7 +81,7 @@ app.get("/api/:username/taskboard/todotasks/:id", async (request, response) => {
   let MongoClient = mongodb.MongoClient;
 });
 
-app.put("/api/:username/taskboard/todotasks/:id", async (request, response) => {
+app.put("/api/:username/taskboard/todotasks/:id", async (req, res) => {
   let username = req.params.username;
   let id = req.params.id;
   console.log('Requested to update the task '+ id +' of '+username);

@@ -3,14 +3,16 @@
 }
 
 .loading-container{
-  position: absolute;
+  position: fixed;
   top:0;
   left: 0;
+  margin:0;
   width:100%;
   height:100%;
-  background-color: var(--colorBackgroundTheme1);
+  overflow:hidden;
+  background-color: var(--colorBackgroundTheme4);
   visibility: hidden;
-  z-index:1;
+  z-index:4;
 }
 
 .gif-loader{
